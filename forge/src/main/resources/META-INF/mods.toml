@@ -1,0 +1,30 @@
+modLoader = "javafml"
+loaderVersion = "[47,)"
+#issueTrackerURL = ""
+license = "MIT"
+
+[[mods]]
+modId = "enchantinnovation"
+version = "${version}"
+displayName = "EnchantInnovation"
+authors = "yyz729"
+description = '''
+https://modrinth.com/mod/enchant-innovation
+https://github.com/yyz729/EnchantInnovation
+'''
+#logoFile = ""
+
+[[dependencies.enchantinnovation]]
+modId = "forge"
+mandatory = true
+versionRange = "[47,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.enchantinnovation]]
+modId = "minecraft"
+mandatory = true
+versionRange = "[1.20.1,)"
+ordering = "NONE"
+side = "BOTH"
+
