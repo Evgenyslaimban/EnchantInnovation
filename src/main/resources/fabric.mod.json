@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "id": "enchantinnovation",
+  "version": "${version}",
+  "name": "EnchantInnovation",
+  "description": "",
+  "authors": ["yyz729"],
+  "contact": {
+    "homepage": "https://modrinth.com/mod/enchant-innovation"
+  },
+  "license": "MIT",
+  "icon": "assets/enchantinnovation/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "client": [
+      "com.yyz.client.EnchantInnovationClient"
+    ],
+    "main": [
+      "com.yyz.EnchantInnovation"
+    ]
+  },
+  "mixins": [
+    "enchantinnovation.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric": "*",
+    "minecraft": "${minecraft_version}"
+  }
+}

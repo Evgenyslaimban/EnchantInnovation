@@ -1,0 +1,18 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "com.yyz.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [
+    "AnvilScreenHandlerMixin",
+    "EnchantmentScreenHandlerMixin",
+    "ItemStackMixin",
+    "PlayerEntityMixin"
+  ],
+  "client": [
+    "EnchantmentScreenMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
