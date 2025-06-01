@@ -1,4 +1,4 @@
-package com.yyz.neoforge;
+package com.yyz.enchantinnovation.neoforge;
 
 import net.minecraft.core.component.DataComponentType;
 

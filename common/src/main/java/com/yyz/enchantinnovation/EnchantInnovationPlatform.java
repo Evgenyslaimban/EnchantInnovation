@@ -1,4 +1,4 @@
-package com.yyz;
+package com.yyz.enchantinnovation;
 
 import dev.architectury.injectables.annotations.ExpectPlatform;
 import net.minecraft.core.component.DataComponentType;

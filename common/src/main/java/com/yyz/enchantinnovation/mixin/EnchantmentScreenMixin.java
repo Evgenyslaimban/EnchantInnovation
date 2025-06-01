@@ -1,6 +1,6 @@
-package com.yyz.mixin;
+package com.yyz.enchantinnovation.mixin;
 
-import com.yyz.EnchantmentUtils;
+import com.yyz.enchantinnovation.EnchantmentUtils;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.gui.screens.inventory.EnchantmentScreen;
 import net.minecraft.client.player.LocalPlayer;

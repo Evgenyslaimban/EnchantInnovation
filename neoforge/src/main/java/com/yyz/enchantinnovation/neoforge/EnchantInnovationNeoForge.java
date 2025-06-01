@@ -1,7 +1,7 @@
-package com.yyz.neoforge;
+package com.yyz.enchantinnovation.neoforge;
 
 import com.mojang.serialization.Codec;
-import com.yyz.EnchantInnovation;
+import com.yyz.enchantinnovation.EnchantInnovation;
 import net.minecraft.core.component.DataComponentType;
 import net.minecraft.core.registries.Registries;
 import net.neoforged.bus.api.IEventBus;

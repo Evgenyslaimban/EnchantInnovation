@@ -1,4 +1,4 @@
-package com.yyz;
+package com.yyz.enchantinnovation;
 
 
 import net.minecraft.world.item.ItemStack;

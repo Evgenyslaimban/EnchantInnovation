@@ -1,7 +1,7 @@
-package com.yyz.mixin;
+package com.yyz.enchantinnovation.mixin;
 
-import com.yyz.EnchantInnovationPlatform;
-import com.yyz.EnchantmentUtils;
+import com.yyz.enchantinnovation.EnchantInnovationPlatform;
+import com.yyz.enchantinnovation.EnchantmentUtils;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.EquipmentSlot;
