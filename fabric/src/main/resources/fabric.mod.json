@@ -15,10 +15,10 @@
   "environment": "*",
   "entrypoints": {
     "main": [
-      "com.yyz.fabric.EnchantInnovationFabric"
+      "com.yyz.enchantinnovation.fabric.EnchantInnovationFabric"
     ],
     "client": [
-      "com.yyz.fabric.client.EnchantInnovationFabricClient"
+      "com.yyz.enchantinnovation.fabric.client.EnchantInnovationFabricClient"
     ]
   },
   "mixins": [

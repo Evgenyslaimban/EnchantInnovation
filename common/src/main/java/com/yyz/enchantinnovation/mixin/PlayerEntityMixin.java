@@ -1,6 +1,6 @@
-package com.yyz.mixin;
+package com.yyz.enchantinnovation.mixin;
 
-import com.yyz.EnchantmentUtils;
+import com.yyz.enchantinnovation.EnchantmentUtils;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;

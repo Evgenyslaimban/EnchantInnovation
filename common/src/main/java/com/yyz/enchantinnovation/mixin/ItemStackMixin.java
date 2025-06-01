@@ -1,6 +1,6 @@
-package com.yyz.mixin;
+package com.yyz.enchantinnovation.mixin;
 
-import com.yyz.EnchantmentUtils;
+import com.yyz.enchantinnovation.EnchantmentUtils;
 import net.minecraft.ChatFormatting;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
@@ -13,11 +13,9 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import java.util.List;
-import java.util.function.Consumer;
 
 @Mixin(ItemStack.class)
 public class ItemStackMixin {

@@ -1,6 +1,6 @@
-package com.yyz.fabric;
+package com.yyz.enchantinnovation.fabric;
 
-import com.yyz.EnchantInnovation;
+import com.yyz.enchantinnovation.EnchantInnovation;
 import net.fabricmc.api.ModInitializer;
 
 public final class EnchantInnovationFabric implements ModInitializer {

@@ -1,4 +1,4 @@
-package com.yyz.fabric.client;
+package com.yyz.enchantinnovation.fabric.client;
 
 import net.fabricmc.api.ClientModInitializer;
 

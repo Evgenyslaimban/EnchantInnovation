@@ -1,7 +1,7 @@
-package com.yyz.mixin;
+package com.yyz.enchantinnovation.mixin;
 
 
-import com.yyz.EnchantmentUtils;
+import com.yyz.enchantinnovation.EnchantmentUtils;
 import net.minecraft.world.Container;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.EnchantmentMenu;

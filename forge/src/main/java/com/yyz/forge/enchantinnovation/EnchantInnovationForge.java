@@ -1,6 +1,6 @@
-package com.yyz.forge;
+package com.yyz.forge.enchantinnovation;
 
-import com.yyz.EnchantInnovation;
+import com.yyz.enchantinnovation.EnchantInnovation;
 import net.minecraftforge.fml.common.Mod;
 
 @Mod(EnchantInnovation.MOD_ID)
