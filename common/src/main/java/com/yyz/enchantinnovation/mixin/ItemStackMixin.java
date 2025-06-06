@@ -30,9 +30,8 @@ public class ItemStackMixin {
         if (!stack.isDamageableItem()) return;
 
         int exp = stack.getOrDefault(EnchantInnovationPlatform.getExp(),0);
-        int[] levelInfo = EnchantmentUtils.calculateLevelAndProgress(exp);
-        int currentLevel = levelInfo[0];
-        int currentProgress = levelInfo[1];
+        int currentLevel = stack.getOrDefault(EnchantInnovationPlatform.getLevel(), EnchantmentUtils.calculateLevelFromExp(stack));
+        int currentProgress = EnchantmentUtils.calculateLevelAndProgress(exp)[1];
         int requiredExp = EnchantmentUtils.getExpRequiredForNextLevel(currentLevel);
         String displayText = "Lv." + currentLevel + " (" + currentProgress + "/" + requiredExp + ")";
         cir.getReturnValue().add(1, Component.literal(displayText).withStyle(ChatFormatting.GRAY));
