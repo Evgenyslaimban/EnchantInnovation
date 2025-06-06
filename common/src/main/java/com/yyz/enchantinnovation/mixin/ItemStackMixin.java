@@ -7,12 +7,11 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
-import net.minecraft.world.item.ArmorItem;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
@@ -23,14 +22,12 @@ import java.util.List;
 @Mixin(ItemStack.class)
 public class ItemStackMixin {
 
-    @Unique
-    ItemStack stack = (ItemStack) (Object) this;
-
     @Inject(method = "getTooltipLines", at = @At("RETURN"))
     private void injectGetTooltip(Item.TooltipContext tooltipContext, Player player, TooltipFlag tooltipFlag, CallbackInfoReturnable<List<Component>> cir) {
+        ItemStack stack = (ItemStack) (Object) this;
         if (!stack.isDamageableItem()) return;
 
-        int exp = stack.getOrDefault(EnchantInnovationPlatform.getExp(),0);
+        int exp = stack.getOrDefault(EnchantInnovationPlatform.getExp(), 0);
         int currentLevel = stack.getOrDefault(EnchantInnovationPlatform.getLevel(), EnchantmentUtils.calculateLevelFromExp(stack));
         int currentProgress = EnchantmentUtils.calculateLevelAndProgress(exp)[1];
         int requiredExp = EnchantmentUtils.getExpRequiredForNextLevel(currentLevel);
@@ -40,6 +37,7 @@ public class ItemStackMixin {
 
     @Inject(method = "hurtAndBreak(ILnet/minecraft/world/entity/LivingEntity;Lnet/minecraft/world/entity/EquipmentSlot;)V", at = @At("RETURN"))
     private void injectDamage(int i, LivingEntity livingEntity, EquipmentSlot equipmentSlot, CallbackInfo ci) {
+        ItemStack stack = (ItemStack) (Object) this;
         int exp = i;
         Item item = stack.getItem();
 

@@ -43,8 +43,8 @@ public class NeoForgeEvents {
 
     @SubscribeEvent
     public static void onArrowHit(ProjectileImpactEvent.Arrow event) {
-        if (event.getRayTraceResult().getType() == net.minecraft.world.phys.HitResult.Type.ENTITY) {
-            if (event.getArrow().getOwner() instanceof Player player) {
+        if (event.getHitResult().getType() == net.minecraft.world.phys.HitResult.Type.ENTITY) {
+            if (event.getProjectile().getOwner() instanceof Player player) {
                 ItemStack bow = player.getMainHandItem();
                 if (bow.getItem() instanceof BowItem) {
                     EnchantmentUtils.addExp(bow, 10);
