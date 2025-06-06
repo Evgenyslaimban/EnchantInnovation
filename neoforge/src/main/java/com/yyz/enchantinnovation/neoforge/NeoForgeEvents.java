@@ -12,7 +12,9 @@ import net.minecraft.world.item.ShieldItem;
 import net.minecraft.world.item.SwordItem;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.Mod;
-import net.neoforged.neoforge.event.entity.living.ShieldBlockEvent;
+import net.neoforged.neoforge.event.entity.living.LivingShieldBlockEvent;
+import net.neoforged.neoforge.event.entity.living.LivingDamageEvent;
+import net.neoforged.neoforge.event.entity.living.ArmorHurtEvent;
 import net.neoforged.neoforge.event.entity.player.PlayerXpEvent;
 import net.neoforged.neoforge.event.entity.ProjectileImpactEvent;
 import net.neoforged.neoforge.event.level.BlockEvent;
@@ -42,9 +44,10 @@ public class NeoForgeEvents {
     }
 
     @SubscribeEvent
-    public static void onArrowHit(ProjectileImpactEvent.Arrow event) {
-        if (event.getHitResult().getType() == net.minecraft.world.phys.HitResult.Type.ENTITY) {
-            if (event.getProjectile().getOwner() instanceof Player player) {
+    public static void onArrowHit(ProjectileImpactEvent event) {
+        if (event.getProjectile() instanceof net.minecraft.world.entity.projectile.AbstractArrow arrow &&
+                event.getRayTraceResult().getType() == net.minecraft.world.phys.HitResult.Type.ENTITY) {
+            if (arrow.getOwner() instanceof Player player) {
                 ItemStack bow = player.getMainHandItem();
                 if (bow.getItem() instanceof BowItem) {
                     EnchantmentUtils.addExp(bow, 10);
@@ -54,12 +57,37 @@ public class NeoForgeEvents {
     }
 
     @SubscribeEvent
-    public static void onShieldBlock(ShieldBlockEvent event) {
+    public static void onShieldBlock(LivingShieldBlockEvent event) {
         if (event.getEntity() instanceof Player player) {
-            ItemStack stack = event.getShield();
+            ItemStack stack = player.getUseItem();
             if (stack.getItem() instanceof ShieldItem) {
                 EnchantmentUtils.addExp(stack, 10);
             }
+        }
+    }
+
+    @SubscribeEvent
+    public static void onPlayerDamaged(LivingDamageEvent.Pre event) {
+        if (event.getEntity() instanceof Player player) {
+            int dmg = (int) event.getAmount();
+            for (ItemStack armor : player.getArmorSlots()) {
+                if (!armor.isEmpty()) {
+                    EnchantmentUtils.addExp(armor, dmg);
+                }
+            }
+        }
+    }
+
+    @SubscribeEvent
+    public static void onArmorBlock(ArmorHurtEvent event) {
+        if (event.getEntity() instanceof Player) {
+            event.getArmorMap().forEach((slot, entry) -> {
+                ItemStack armor = entry.armorItemStack;
+                int blocked = Math.round(entry.originalDamage);
+                if (!armor.isEmpty()) {
+                    EnchantmentUtils.addExp(armor, blocked);
+                }
+            });
         }
     }
 }
